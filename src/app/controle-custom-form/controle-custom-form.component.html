@@ -1,0 +1,7 @@
+<div>
+  <button>-</button>
+  <input [value]="value" type="number" (input)="changeHandler($event)" />
+
+  <span>{{ value }}</span>
+  <button (click)="increase()">+</button>
+</div>
