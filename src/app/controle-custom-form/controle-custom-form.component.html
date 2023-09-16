@@ -5,3 +5,7 @@
   <span>{{ value }}</span>
   <button (click)="increase()">+</button>
 </div>
+<div *ngIf="_control.isTouched">{{ _control.errors | json }}</div>
+<!-- TODO: search best practice of angular field error customization  -->
+<!-- then... age chizi peyda nashod... -->
+<!-- TODO: create error pipe or directive for customize error voroodi json... khoroji matne farsi ke az ye dict migire  -->

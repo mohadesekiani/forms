@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, Inject, INJECTOR, Injector } from '@angular/core';
+import {
+  ControlValueAccessor,
+  NgControl,
+  NG_VALUE_ACCESSOR,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-controle-custom-form',
@@ -14,6 +18,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class ControleCustomFormComponent implements ControlValueAccessor {
+  _control!: NgControl;
+
+  constructor(@Inject(INJECTOR) private injector: Injector) {}
+
+  ngOnInit() {
+    this._control = this.injector.get(NgControl);
+  }
   value: number = 0;
   onChange!: (value: number) => void;
   onTouch!: (value: number) => void;

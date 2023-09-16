@@ -1,3 +1,16 @@
 <div>
   <app-reactive-form></app-reactive-form>
 </div>
+<div style="border: 1px solid red; margin: 10px; padding: 10px">
+  <form [formGroup]="flightForm">
+    <hr />
+    <app-basic-info></app-basic-info>
+    <app-passenger-form-group
+      formGroupName="passengers"
+    ></app-passenger-form-group>
+    <!-- <app-passengers></app-passengers> -->
+    <!-- man chika karde bodam? -->
+  </form>
+</div>
+<div style="border: 1px solid #ccc">{{ flightForm.value | json }}</div>
+<div style="border: 1px solid #fe1">valid?{{ flightForm.valid | json }}</div>

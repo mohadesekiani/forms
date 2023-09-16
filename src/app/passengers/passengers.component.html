@@ -1,0 +1,15 @@
+<ng-container [formGroup]="form">
+  <div formGroupName="passengers">
+    <button>-</button>
+    <input
+      formControlName="adult"
+      [value]="value"
+      type="number"
+      (input)="changeHandler($event)"
+    />
+
+    <span>{{ value }}</span>
+    <button (click)="increase()">+</button>
+  </div>
+  {{ form.value | json }}
+</ng-container>
